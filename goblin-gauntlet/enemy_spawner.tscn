@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfm31ibeg15fi"]
+
+[ext_resource type="Script" uid="uid://d0a0cgrujysvv" path="res://enemy_spawner.gd" id="1_ewhtn"]
+[ext_resource type="PackedScene" uid="uid://dqi8ngiav5r0b" path="res://goblin.tscn" id="2_00s5r"]
+
+[node name="EnemySpawner" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_ewhtn")
+enemy_scene = ExtResource("2_00s5r")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

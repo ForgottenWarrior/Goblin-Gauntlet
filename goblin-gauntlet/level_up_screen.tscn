@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://u5vme1bm87hg"]
+
+[ext_resource type="Script" uid="uid://dj3cnurywcikr" path="res://levelupscreen.gd" id="1_i5ge7"]
+
+[node name="LevelUpScreen" type="ColorRect"]
+script = ExtResource("1_i5ge7")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_left = 471.0
+offset_top = 56.0
+offset_right = 739.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 32
+text = "LEVEL UP!"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 407.0
+offset_top = 174.0
+offset_right = 810.0
+offset_bottom = 437.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://crohsrju3146m"]
+
+[ext_resource type="Script" uid="uid://b8o2qh4idy1js" path="res://movement.gd" id="1_4flbx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vgmp0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ar5m6"]
+
+[node name="player" type="CharacterBody3D" groups=["player"]]
+collision_mask = 3
+script = ExtResource("1_4flbx")
+MOVE_SPEED = null
+health = null
+max_health = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_vgmp0")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ar5m6")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642787, 0, -0.642787, 0.766044, 0, 15, 18)
+current = true
+fov = 50.0
+
+[node name="AxePivot" type="Node3D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

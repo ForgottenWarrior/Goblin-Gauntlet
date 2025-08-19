@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbm6ciymllr2i"]
+
+[ext_resource type="Script" uid="uid://dn48ao5krgd5j" path="res://experience_gem.gd" id="1_qqtk7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_p4tau"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqtk7"]
+albedo_color = Color(0.0509804, 0.74902, 0.301961, 1)
+emission_enabled = true
+emission = Color(0, 0.807843, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7arep"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_qqtk7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("BoxMesh_p4tau")
+surface_material_override/0 = SubResource("StandardMaterial3D_qqtk7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_7arep")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

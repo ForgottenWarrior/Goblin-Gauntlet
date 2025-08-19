@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://o7r6momq3jcc"]
+
+[ext_resource type="Script" uid="uid://cymknj8mdqora" path="res://hud.gd" id="1_37p78"]
+
+[sub_resource type="Gradient" id="Gradient_37p78"]
+colors = PackedColorArray(0.632225, 1.40782e-06, 2.40654e-07, 1, 0.615686, 0.0705882, 0.0784314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_64ctp"]
+gradient = SubResource("Gradient_37p78")
+
+[sub_resource type="Gradient" id="Gradient_64ctp"]
+colors = PackedColorArray(5.29438e-07, 0.725175, 2.5028e-06, 1, 0, 0.72549, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8sq4i"]
+gradient = SubResource("Gradient_64ctp")
+
+[sub_resource type="Gradient" id="Gradient_8sq4i"]
+colors = PackedColorArray(0.485601, 0.000166388, 0.485597, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_640wx"]
+gradient = SubResource("Gradient_8sq4i")
+
+[sub_resource type="Gradient" id="Gradient_a2258"]
+colors = PackedColorArray(0.917647, 0.87451, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1xsix"]
+gradient = SubResource("Gradient_a2258")
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_37p78")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = -191.0
+offset_right = 1074.0
+offset_bottom = -127.0
+grow_vertical = 0
+texture_under = SubResource("GradientTexture2D_64ctp")
+texture_progress = SubResource("GradientTexture2D_8sq4i")
+
+[node name="XpBar" type="TextureProgressBar" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = 530.0
+offset_right = -39.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_under = SubResource("GradientTexture2D_640wx")
+texture_progress = SubResource("GradientTexture2D_1xsix")
