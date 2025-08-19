@@ -1,12 +1,14 @@
 extends CharacterBody3D
 
 # Preload the gem scene so the goblin knows what to drop on death.
-const EXPERIENCE_GEM_SCENE = preload("res://scences/experience_gem.tscn")
+const EXPERIENCE_GEM_SCENE = preload("res://scenes/experience_gem.tscn")
+const GOLD_COIN_SCENE = preload("res://scenes/gold_coin.tscn") 
 
 # These variables can be changed in the Godot editor's Inspector.
-@export var health: int = 10
-@export var move_speed: float = 3.0
-@export var score_value: int = 10
+@export var health: int = 10	# goblin health
+@export var move_speed: float = 3.0	# goblin movement
+@export var score_value: int = 10	
+@export var gold_drop_chance: float = 0.50 # A 50% chance to drop gold
 
 # This will hold a reference to the player node.
 var player: Node3D = null
@@ -28,18 +30,20 @@ func _physics_process(_delta):
 func take_damage(damage_amount: int):
 	health -= damage_amount
 	print("Goblin took ", damage_amount, " damage, ", health, " HP remaining.")
-	
-	# When health is zero or less, the goblin dies.
+
 	if health <= 0:
-		# Add score before destroying the goblin.
 		GameManager.add_score(score_value)
-		# Create a gem instance before the goblin is destroyed.
+
+		# Drop an experience gem
 		if EXPERIENCE_GEM_SCENE:
 			var gem = EXPERIENCE_GEM_SCENE.instantiate()
-			# Add it to the main scene.
 			get_tree().get_root().add_child(gem)
-			# Place the gem where the enemy died.
 			gem.global_position = self.global_position
-		
-		# Now, destroy the goblin.
+
+		# Check if we should also drop a gold coin
+		if randf() < gold_drop_chance:
+			var coin = GOLD_COIN_SCENE.instantiate()
+			get_tree().get_root().add_child(coin)
+			coin.global_position = self.global_position
+
 		queue_free()

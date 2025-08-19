@@ -1,10 +1,10 @@
 extends CharacterBody3D
 
-const LEVEL_UP_SCREEN = preload("res://scences/level_up_screen.tscn")
-const MAGIC_MISSILE_SCENE = preload("res://scences/magic_missile.tscn")
-const SPINNING_AXE_SCENE = preload("res://scences/spinning_axe.tscn")
-const GAME_OVER_SCREEN = preload("res://scences/game_over_screen.tscn")
-const PAUSE_MENU_SCENE = preload("res://scences/pause_menu.tscn") 
+const LEVEL_UP_SCREEN = preload("res://scenes/level_up_screen.tscn")
+const MAGIC_MISSILE_SCENE = preload("res://scenes/magic_missile.tscn")
+const SPINNING_AXE_SCENE = preload("res://scenes/spinning_axe.tscn")
+const GAME_OVER_SCREEN = preload("res://scenes/game_over_screen.tscn")
+const PAUSE_MENU_SCENE = preload("res://scenes/pause_menu.tscn") 
 
 @export var MOVE_SPEED: float = 5.0
 @export var health: int = 100
@@ -140,7 +140,7 @@ func take_damage(damage_amount: int):
 		# Show the game over screen.
 		var game_over_instance = GAME_OVER_SCREEN.instantiate()
 		get_tree().get_root().add_child(game_over_instance)
-		self.hide()
+		call_deferred("hide")
 		
 func _unhandled_input(event):
 	# Check if the "ui_pause" action was just pressed.

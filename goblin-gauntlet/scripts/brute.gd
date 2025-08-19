@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 # Preload the gem scene so the goblin knows what to drop on death.
-const EXPERIENCE_GEM_SCENE = preload("res://scences/experience_gem.tscn")
+const EXPERIENCE_GEM_SCENE = preload("res://scenes/experience_gem.tscn")
 
 # These variables can be changed in the Godot editor's Inspector.
 @export var health: int = 10

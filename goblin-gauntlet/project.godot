@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Goblin Gauntlet"
-run/main_scene="uid://dwjqxi27yavo0"
+run/main_scene="uid://tuq7my44mrde"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://assets/textures/icon.svg"
 
