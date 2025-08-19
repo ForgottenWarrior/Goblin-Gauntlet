@@ -1,11 +1,12 @@
 extends CharacterBody3D
 
 # Preload the gem scene so the goblin knows what to drop on death.
-const EXPERIENCE_GEM_SCENE = preload("res://experience_gem.tscn")
+const EXPERIENCE_GEM_SCENE = preload("res://scences/experience_gem.tscn")
 
 # These variables can be changed in the Godot editor's Inspector.
 @export var health: int = 10
 @export var move_speed: float = 3.0
+@export var score_value: int = 10
 
 # This will hold a reference to the player node.
 var player: Node3D = null
@@ -30,6 +31,8 @@ func take_damage(damage_amount: int):
 	
 	# When health is zero or less, the goblin dies.
 	if health <= 0:
+		# Add score before destroying the goblin.
+		GameManager.add_score(score_value)
 		# Create a gem instance before the goblin is destroyed.
 		if EXPERIENCE_GEM_SCENE:
 			var gem = EXPERIENCE_GEM_SCENE.instantiate()

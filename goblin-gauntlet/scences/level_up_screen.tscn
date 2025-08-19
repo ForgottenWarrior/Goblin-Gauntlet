@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://u5vme1bm87hg"]
 
-[ext_resource type="Script" uid="uid://dj3cnurywcikr" path="res://levelupscreen.gd" id="1_i5ge7"]
+[ext_resource type="Script" uid="uid://dj3cnurywcikr" path="res://scripts/levelupscreen.gd" id="1_i5ge7"]
 
 [node name="LevelUpScreen" type="ColorRect"]
 script = ExtResource("1_i5ge7")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cixblt75r2wr6"]
 
-[ext_resource type="Script" uid="uid://bnmvn8ffjempf" path="res://upgrade_card.gd" id="1_67b1n"]
+[ext_resource type="Script" uid="uid://bnmvn8ffjempf" path="res://scripts/upgrade_card.gd" id="1_67b1n"]
 
 [node name="UpgradeCard" type="Button"]
 anchors_preset = 8

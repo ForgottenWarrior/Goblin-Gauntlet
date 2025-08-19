@@ -1,13 +1,15 @@
 extends CharacterBody3D
 
-const LEVEL_UP_SCREEN = preload("res://level_up_screen.tscn")
-const MAGIC_MISSILE_SCENE = preload("res://magic_missile.tscn")
-const SPINNING_AXE_SCENE = preload("res://spinning_axe.tscn")
-const GAME_OVER_SCREEN = preload("res://game_over_screen.tscn")
+const LEVEL_UP_SCREEN = preload("res://scences/level_up_screen.tscn")
+const MAGIC_MISSILE_SCENE = preload("res://scences/magic_missile.tscn")
+const SPINNING_AXE_SCENE = preload("res://scences/spinning_axe.tscn")
+const GAME_OVER_SCREEN = preload("res://scences/game_over_screen.tscn")
+const PAUSE_MENU_SCENE = preload("res://scences/pause_menu.tscn") 
 
 @export var MOVE_SPEED: float = 5.0
 @export var health: int = 100
 @export var max_health: int = 100
+@export var missile_sounds: Array[AudioStream]
 
 var missile_speed: float = 10.0
 var current_xp: int = 0
@@ -63,6 +65,7 @@ func _on_timer_timeout():
 	var enemies = get_tree().get_nodes_in_group("enemy")
 	if enemies.is_empty():
 		return
+
 	var closest_enemy = null
 	var closest_distance = 9999.0
 	for enemy in enemies:
@@ -71,12 +74,20 @@ func _on_timer_timeout():
 			if distance < closest_distance:
 				closest_distance = distance
 				closest_enemy = enemy
+	
+	# All missile logic should be inside this single block.
 	if is_instance_valid(closest_enemy):
+		# Create and aim the missile.
 		var missile = MAGIC_MISSILE_SCENE.instantiate()
 		get_tree().get_root().add_child(missile)
 		missile.global_position = self.global_position
 		missile.transform = missile.transform.looking_at(closest_enemy.global_position, Vector3.UP)
 		
+		# Now, play the random sound.
+		if not missile_sounds.is_empty():
+			var random_sound = missile_sounds.pick_random()
+			$AudioStreamPlayer3D.stream = random_sound
+			$AudioStreamPlayer3D.play()
 func add_experience(amount: int):
 	current_xp += amount
 	print("Gained ", amount, " XP! Total: ", current_xp, "/", xp_to_next_level)
@@ -116,17 +127,27 @@ func _on_upgrade_selected(upgrade_key):
 
 func take_damage(damage_amount: int):
 	health -= damage_amount
+	health_updated.emit(health, max_health)
 	print("Player took ", damage_amount, " damage, ", health, " HP remaining.")
 
-	# Emit the signal with the new health values.
-	health_updated.emit(health, max_health)
-
-	# Inside the take_damage function...
 	if health <= 0:
 		print("GAME OVER")
-	# Instead of quitting, show the game over screen and pause.
-		get_tree().paused = true
+
+		# --- NEW PAUSE LOGIC ---
+		# Pause all nodes in the "gameplay" group.
+		get_tree().call_group("gameplay", "set_process_mode", Node.PROCESS_MODE_DISABLED)
+
+		# Show the game over screen.
 		var game_over_instance = GAME_OVER_SCREEN.instantiate()
 		get_tree().get_root().add_child(game_over_instance)
-	# We can also hide the player to prevent them from firing.
 		self.hide()
+		
+func _unhandled_input(event):
+	# Check if the "ui_pause" action was just pressed.
+	if event.is_action_pressed("ui_pause"):
+		# Pause all nodes in the "gameplay" group.
+		get_tree().call_group("gameplay", "set_process_mode", Node.PROCESS_MODE_DISABLED)
+
+		# Create and show the pause menu.
+		var pause_menu = PAUSE_MENU_SCENE.instantiate()
+		get_tree().get_root().add_child(pause_menu)

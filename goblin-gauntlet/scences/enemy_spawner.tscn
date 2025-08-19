@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfm31ibeg15fi"]
 
-[ext_resource type="Script" uid="uid://d0a0cgrujysvv" path="res://enemy_spawner.gd" id="1_ewhtn"]
-[ext_resource type="PackedScene" uid="uid://dqi8ngiav5r0b" path="res://goblin.tscn" id="2_00s5r"]
+[ext_resource type="Script" uid="uid://d0a0cgrujysvv" path="res://scripts/enemy_spawner.gd" id="1_ewhtn"]
+[ext_resource type="PackedScene" uid="uid://dqi8ngiav5r0b" path="res://scences/goblin.tscn" id="2_00s5r"]
 
 [node name="EnemySpawner" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

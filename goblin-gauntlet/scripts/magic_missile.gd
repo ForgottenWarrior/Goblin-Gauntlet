@@ -1,5 +1,5 @@
 extends Area3D
-const EXPERIENCE_GEM_SCENE = preload("res://experience_gem.tscn")
+const EXPERIENCE_GEM_SCENE = preload("res://scences/experience_gem.tscn")
 var damage = 8 # Based on your spreadsheet for Arcane Bolt Lvl 1
 var speed = 10.0
 

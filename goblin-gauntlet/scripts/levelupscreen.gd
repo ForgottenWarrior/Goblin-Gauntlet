@@ -3,7 +3,7 @@ extends ColorRect
 # This signal will send the chosen upgrade key back to the player.
 signal upgrade_selected(upgrade_key)
 
-const UPGRADE_CARD_SCENE = preload("res://upgrade_card.tscn")
+const UPGRADE_CARD_SCENE = preload("res://scences/upgrade_card.tscn")
 
 # This function is called by the player to set up the screen.
 func initialize_options(upgrades):

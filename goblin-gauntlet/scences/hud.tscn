@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://o7r6momq3jcc"]
 
-[ext_resource type="Script" uid="uid://cymknj8mdqora" path="res://hud.gd" id="1_37p78"]
+[ext_resource type="Script" uid="uid://cymknj8mdqora" path="res://scripts/hud.gd" id="1_37p78"]
 
 [sub_resource type="Gradient" id="Gradient_37p78"]
 colors = PackedColorArray(0.632225, 1.40782e-06, 2.40654e-07, 1, 0.615686, 0.0705882, 0.0784314, 1)
@@ -15,7 +15,7 @@ colors = PackedColorArray(5.29438e-07, 0.725175, 2.5028e-06, 1, 0, 0.72549, 0, 1
 gradient = SubResource("Gradient_64ctp")
 
 [sub_resource type="Gradient" id="Gradient_8sq4i"]
-colors = PackedColorArray(0.485601, 0.000166388, 0.485597, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0.016385, 1.05399e-06, 0.0163848, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_640wx"]
 gradient = SubResource("Gradient_8sq4i")
@@ -38,6 +38,7 @@ offset_top = -191.0
 offset_right = 1074.0
 offset_bottom = -127.0
 grow_vertical = 0
+fill_mode = 1
 texture_under = SubResource("GradientTexture2D_64ctp")
 texture_progress = SubResource("GradientTexture2D_8sq4i")
 
@@ -51,5 +52,12 @@ offset_right = -39.0
 offset_bottom = -54.0
 grow_horizontal = 2
 grow_vertical = 2
+fill_mode = 1
 texture_under = SubResource("GradientTexture2D_640wx")
 texture_progress = SubResource("GradientTexture2D_1xsix")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 54.0
+offset_top = 23.0
+offset_right = 315.0
+offset_bottom = 90.0

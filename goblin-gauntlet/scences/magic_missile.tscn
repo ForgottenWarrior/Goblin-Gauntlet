@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dok6l82b0cces"]
+
+[ext_resource type="Script" uid="uid://ddawmt1e7v1re" path="res://scripts/magic_missile.gd" id="1_tni2v"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_jqh2w"]
+radius = 0.1
+height = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tni2v"]
+radius = 0.1
+
+[node name="magic_missile" type="Area3D" groups=["gamplay"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_tni2v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_jqh2w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_tni2v")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

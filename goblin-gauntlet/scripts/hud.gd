@@ -1,5 +1,7 @@
 extends CanvasLayer
-
+func _ready():
+	# Connect to the global GameManager's signal.
+	GameManager.score_updated.connect(_on_score_updated)
 # This function will be called by the player to update the health bar.
 func set_health(current_health: int, max_health: int):
 	# We access the TextureProgressBar using its name ($HealthBar)
@@ -14,3 +16,6 @@ func set_experience(current_xp: int, xp_to_next_level: int):
 	var xp_bar = $XpBar
 	xp_bar.max_value = xp_to_next_level
 	xp_bar.value = current_xp
+	
+func _on_score_updated(new_score: int):
+	$ScoreLabel.text = "Score: " + str(new_score)
