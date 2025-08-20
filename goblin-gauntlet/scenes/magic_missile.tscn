@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dok6l82b0cces"]
+[gd_scene load_steps=7 format=3 uid="uid://dok6l82b0cces"]
 
 [ext_resource type="Script" uid="uid://ddawmt1e7v1re" path="res://scripts/magic_missile.gd" id="1_tni2v"]
 
@@ -8,6 +8,21 @@ height = 0.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tni2v"]
 radius = 0.1
+
+[sub_resource type="Gradient" id="Gradient_se5q5"]
+colors = PackedColorArray(1.58831e-06, 0, 0.530676, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b1720"]
+gradient = SubResource("Gradient_se5q5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_se5q5"]
+lifetime_randomness = 0.01
+emission_shape = 1
+emission_sphere_radius = 0.1
+spread = 180.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+color_ramp = SubResource("GradientTexture1D_b1720")
 
 [node name="magic_missile" type="Area3D" groups=["gamplay"]]
 collision_layer = 2
@@ -19,5 +34,8 @@ mesh = SubResource("SphereMesh_jqh2w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_tni2v")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_se5q5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

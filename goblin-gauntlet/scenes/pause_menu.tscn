@@ -36,5 +36,10 @@ process_mode = 2
 layout_mode = 2
 text = "Quit"
 
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = "Confirm Quit"
+dialog_text = "Are you sure you want to quit?"
+
 [connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_button_pressed"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
