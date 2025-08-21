@@ -1,11 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqi8ngiav5r0b"]
+[gd_scene load_steps=5 format=3 uid="uid://dqi8ngiav5r0b"]
 
 [ext_resource type="Script" uid="uid://djd27550uevv8" path="res://scripts/goblin.gd" id="1_dl46o"]
 [ext_resource type="Script" uid="uid://baosa43vk311i" path="res://scripts/goblin_dmg.gd" id="2_u6mjv"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_p8f7c"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_dl46o"]
+[ext_resource type="PackedScene" uid="uid://dxa00b2qle7n7" path="res://enemy_goblin1.tscn" id="3_q3g0h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vu5tg"]
 
@@ -16,13 +13,6 @@ health = null
 move_speed = null
 score_value = null
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_p8f7c")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
-shape = SubResource("BoxShape3D_dl46o")
-
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 collision_layer = 2
@@ -30,5 +20,10 @@ script = ExtResource("2_u6mjv")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_vu5tg")
+
+[node name="EnemyGoblin" parent="." instance=ExtResource("3_q3g0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.279667, 0, 1.01537)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="EnemyGoblin"]
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

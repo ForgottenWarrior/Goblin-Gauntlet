@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AIAssistantResource" load_steps=4 format=3 uid="uid://cxcsroa8m7jmh"]
+
+[ext_resource type="Resource" uid="uid://b0fti7g31ugs1" path="res://addons/ai_assistant_hub/llm_providers/gemini.tres" id="1_m7o82"]
+[ext_resource type="Script" uid="uid://2vjy8v5om65x" path="res://addons/ai_assistant_hub/quick_prompts/ai_quick_prompt_resource.gd" id="2_aiuuf"]
+[ext_resource type="Script" uid="uid://bapdmdva70iju" path="res://addons/ai_assistant_hub/assistants/ai_assistant_resource.gd" id="3_vd4xd"]
+
+[resource]
+script = ExtResource("3_vd4xd")
+type_name = "Gem AI"
+ai_model = "models/aqa"
+llm_provider = ExtResource("1_m7o82")
+ai_description = "You are a useful Godot AI assistant."
+use_custom_temperature = false
+custom_temperature = 0.5
+quick_prompts = Array[ExtResource("2_aiuuf")]([])

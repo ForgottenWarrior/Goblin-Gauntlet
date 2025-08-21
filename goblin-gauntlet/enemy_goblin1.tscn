@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxa00b2qle7n7"]
+
+[ext_resource type="PackedScene" uid="uid://de2631384o080" path="res://assets/models/goblin/EnemyGoblin.fbx" id="1_3cg0y"]
+[ext_resource type="Texture2D" uid="uid://dth27mx4fk75y" path="res://assets/models/goblin/textures/Goblin1_diffuse.tga" id="2_w271x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3cg0y"]
+albedo_texture = ExtResource("2_w271x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w271x"]
+albedo_texture = ExtResource("2_w271x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqfom"]
+albedo_texture = ExtResource("2_w271x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vsfrw"]
+albedo_texture = ExtResource("2_w271x")
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3cg0y"]
+
+[node name="EnemyGoblin" instance=ExtResource("1_3cg0y")]
+
+[node name="Yazik3" parent="GeneralSkeleton" index="0"]
+material_override = SubResource("StandardMaterial3D_3cg0y")
+
+[node name="Eye" parent="GeneralSkeleton" index="1"]
+material_override = SubResource("StandardMaterial3D_w271x")
+
+[node name="Teth" parent="GeneralSkeleton" index="2"]
+material_override = SubResource("StandardMaterial3D_rqfom")
+
+[node name="Body" parent="GeneralSkeleton" index="3"]
+material_override = SubResource("StandardMaterial3D_vsfrw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"walk": SubResource("AnimationLibrary_3cg0y")
+}
