@@ -1,0 +1,56 @@
+[gd_scene load_steps=14 format=3 uid="uid://bbwegn0dyafa"]
+
+[ext_resource type="Texture2D" uid="uid://mgo4nca883nw" path="res://assets/textures/worn_tile_floor_diff_1k.jpg" id="1_r2no1"]
+[ext_resource type="PackedScene" uid="uid://dfm31ibeg15fi" path="res://scenes/enemy_spawner.tscn" id="2_7dxvt"]
+[ext_resource type="PackedScene" uid="uid://dqi8ngiav5r0b" path="res://scenes/goblin.tscn" id="3_6g5uf"]
+[ext_resource type="PackedScene" uid="uid://t0clls0puhmh" path="res://scenes/brute.tscn" id="4_vogc1"]
+[ext_resource type="PackedScene" uid="uid://o7r6momq3jcc" path="res://scenes/hud.tscn" id="5_tdoqa"]
+[ext_resource type="PackedScene" uid="uid://bauaa5pw8wu6j" path="res://scenes/player2.tscn" id="7_0dj0t"]
+[ext_resource type="TileSet" uid="uid://b3gn7aw7022hm" path="res://assets/textures/tileset.tres" id="7_r2no1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k3rl8"]
+albedo_texture = ExtResource("1_r2no1")
+uv1_scale = Vector3(25, 25, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ihm17"]
+material = SubResource("StandardMaterial3D_k3rl8")
+size = Vector3(250, 1, 250)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oucmq"]
+size = Vector3(250, 0.2, 250)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hbghi"]
+
+[sub_resource type="Sky" id="Sky_hn12h"]
+sky_material = SubResource("ProceduralSkyMaterial_hbghi")
+
+[sub_resource type="Environment" id="Environment_hn12h"]
+background_mode = 2
+sky = SubResource("Sky_hn12h")
+
+[node name="ground" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ihm17")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_oucmq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 63.2516, 2.95531)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hn12h")
+
+[node name="EnemySpawner" parent="." instance=ExtResource("2_7dxvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.88086, 1, 7.974)
+enemy_scenes = Array[PackedScene]([ExtResource("3_6g5uf"), ExtResource("4_vogc1")])
+
+[node name="HUD" parent="." instance=ExtResource("5_tdoqa")]
+
+[node name="player2" parent="." instance=ExtResource("7_0dj0t")]
+transform = Transform3D(1.65, 0, 0, 0, 1.65, 0, 0, 0, 1.65, 8.10504, 2.51633, 9.85372)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("7_r2no1")

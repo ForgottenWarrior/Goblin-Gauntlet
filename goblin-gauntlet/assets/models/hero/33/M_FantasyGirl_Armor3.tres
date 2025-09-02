@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c2vmklnkqdybm"]
+
+[resource]
+resource_name = "M_FantasyGirl_Armor3"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.665185, 0.665185, 0.665185, 1)
+emission_enabled = true

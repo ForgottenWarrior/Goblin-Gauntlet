@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c0w5w88q4nv8n"
+path="res://.godot/imported/Guerilla Tactics.mp3-3d865cb8c04e86d00a831574b1d8d066.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Guerilla Tactics.mp3"
+dest_files=["res://.godot/imported/Guerilla Tactics.mp3-3d865cb8c04e86d00a831574b1d8d066.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

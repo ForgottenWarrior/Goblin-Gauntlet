@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://d1nhfqhpt58i"]
+
+[ext_resource type="Texture2D" uid="uid://cxinlkpjmuh8f" path="res://assets/models/hero/hair_textures/T_FantasyGirl_Hair_albedo.png" id="1_4tef7"]
+[ext_resource type="Texture2D" uid="uid://c713xuacx2lnu" path="res://assets/models/hero/Armor1/T_FantasyGirl_ArmorUP_Metallic_SkinAll.tga" id="2_gfjvb"]
+
+[resource]
+resource_name = "M_FantasyGirl_Armor1"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.665185, 0.665185, 0.665185, 1)
+albedo_texture = ExtResource("1_4tef7")
+metallic = 1.0
+metallic_texture = ExtResource("2_gfjvb")
+emission_enabled = true

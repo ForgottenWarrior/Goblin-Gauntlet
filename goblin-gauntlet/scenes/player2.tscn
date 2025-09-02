@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bauaa5pw8wu6j"]
+
+[ext_resource type="Script" uid="uid://b8o2qh4idy1js" path="res://scripts/movement.gd" id="1_lttm1"]
+[ext_resource type="PackedScene" uid="uid://n68wm4nc7ayv" path="res://assets/models/test/Female Start Walking.fbx" id="2_c08b3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_c08b3"]
+height = 3.07637
+
+[node name="player" type="CharacterBody3D" groups=["gamplay", "player"]]
+transform = Transform3D(1.65, 0, 0, 0, 1.65, 0, 0, 0, 1.65, 0, 0, 0)
+collision_mask = 3
+script = ExtResource("1_lttm1")
+
+[node name="Female Start Walking" parent="." instance=ExtResource("2_c08b3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Female Start Walking"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="AxePivot" type="Node3D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642787, 0, -0.642787, 0.766044, 0, 15, 18)
+current = true
+fov = 50.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.606061, 0, 0, 0, -0.00147033, 0.606059, 0, -0.606059, -0.00147033, 0, 3.47658, 0)
+light_color = Color(0.253843, 0.850069, 0.320891, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 1.87564, 0)
+shape = SubResource("CylinderShape3D_c08b3")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

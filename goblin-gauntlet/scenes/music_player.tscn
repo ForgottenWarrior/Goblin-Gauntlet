@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctsmb1xtf47ln"]
+
+[ext_resource type="AudioStream" uid="uid://blfdiuokd22qs" path="res://assets/audio/music/Action Strike.mp3" id="1_io3i6"]
+[ext_resource type="AudioStream" uid="uid://dunq5drag7x02" path="res://assets/audio/music/Hear What They Say.mp3" id="1_jxdhu"]
+[ext_resource type="AudioStream" uid="uid://c0w5w88q4nv8n" path="res://assets/audio/music/Guerilla Tactics.mp3" id="2_jakdj"]
+[ext_resource type="Script" uid="uid://xhvj6gmmkvhe" path="res://scripts/music_player.gd" id="2_ql6qh"]
+[ext_resource type="AudioStream" uid="uid://crqg0slhirpov" path="res://assets/audio/music/Travelers Notebook.mp3" id="4_h7hmc"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_k0j81"]
+shuffle = true
+stream_count = 4
+stream_0 = ExtResource("1_io3i6")
+stream_1 = ExtResource("2_jakdj")
+stream_2 = ExtResource("1_jxdhu")
+stream_3 = ExtResource("4_h7hmc")
+
+[node name="musicplayer" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamPlaylist_k0j81")
+volume_db = -5.0
+autoplay = true
+script = ExtResource("2_ql6qh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://crqg0slhirpov"
+path="res://.godot/imported/Travelers Notebook.mp3-0dc746f4cc18ffd00980bf4997d3d67d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Travelers Notebook.mp3"
+dest_files=["res://.godot/imported/Travelers Notebook.mp3-0dc746f4cc18ffd00980bf4997d3d67d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -6,7 +6,6 @@ func _ready():
 	# Ask the GameManager for the current gold amount immediately.
 	GameManager.gold_updated.emit(GameManager.current_gold)
 
-
 func _on_gold_updated(new_gold):
 	$GoldLabel.text = "Gold: " + str(new_gold)
 	

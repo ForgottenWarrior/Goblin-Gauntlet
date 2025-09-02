@@ -1,0 +1,89 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bqe8aaccnydaw"
+path="res://.godot/imported/Base mesh Unity.fbx-d63ccf168b68412620c46934a4f2124d.scn"
+
+[deps]
+
+source_file="res://assets/models/hero/Base mesh Unity.fbx"
+dest_files=["res://.godot/imported/Base mesh Unity.fbx-d63ccf168b68412620c46934a4f2124d.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"M_FantasyGirl_Armor1": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/hero/33/M_FantasyGirl_Armor1.tres"
+},
+"M_FantasyGirl_Armor2": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/hero/33/M_FantasyGirl_Armor2.tres"
+},
+"M_FantasyGirl_Armor3": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/hero/33/M_FantasyGirl_Armor3.tres"
+},
+"M_FantasyGirl_Body": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/hero/33/M_FantasyGirl_Body.tres"
+},
+"M_FantasyGirl_Eyelashes": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/hero/33/M_FantasyGirl_Eyelashes.tres"
+},
+"M_FantasyGirl_Eyes": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/hero/33/M_FantasyGirl_Eyes.tres"
+},
+"M_FantasyGirl_Head": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/hero/33/M_FantasyGirl_Head.tres"
+},
+"M_FantasyGirl_Weapon": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/hero/33/M_FantasyGirl_Weapon.tres"
+},
+"M_FantasyGirl_eyebrows": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/hero/33/M_FantasyGirl_eyebrows.tres"
+},
+"M_FantasyGirl_haircards": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/hero/33/M_FantasyGirl_haircards.tres"
+},
+"M_FantasyGirl_mouth": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/hero/33/M_FantasyGirl_mouth.tres"
+},
+"lambert1": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/hero/33/lambert1.tres"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
